@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from "react-router-dom";
+import Albums from "./components/Albums/Albums";
+import Comments from "./components/Comments/Comments";
+import Header from "./components/Header/Header";
+import Photos from "./components/Photos/Photos";
+import Posts from "./components/Posts/Posts";
+import Todos from "./components/Todos/Todos";
+import Users from "./components/Users/Users";
+import { PUBLIC_ROUTES } from "./constants/routes.constants";
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header />
+      <Routes>
+        <Route path={PUBLIC_ROUTES.POSTS} element={<Posts />} exact />
+        <Route path={PUBLIC_ROUTES.COMMENTS} element={<Comments />} />
+        <Route path={PUBLIC_ROUTES.ALBUMS} element={<Albums />} />
+        <Route path={PUBLIC_ROUTES.PHOTOS} element={<Photos />} />
+        <Route path={PUBLIC_ROUTES.TODOS} element={<Todos />} />
+        <Route path={PUBLIC_ROUTES.USERS} element={<Users />} />
+      </Routes>
+    </>
   );
 }
 
